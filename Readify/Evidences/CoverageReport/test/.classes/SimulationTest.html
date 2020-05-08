@@ -1,0 +1,140 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SimulationTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">test</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SimulationTest (test)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SimulationTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (35/ 35)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package test;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import RobotSimulationController.RobotActivity;
+<i>4</i>&nbsp;import org.junit.Test;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import static org.junit.Assert.assertEquals;
+<i>7</i>&nbsp;
+<b class="fc"><i>8</i>&nbsp;public class SimulationTest {</b>
+<b class="fc"><i>9</i>&nbsp;    RobotActivity robot1 = new RobotActivity();</b>
+<b class="fc"><i>10</i>&nbsp;    RobotActivity robot2 = new RobotActivity();</b>
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;    @Test
+<i>13</i>&nbsp;    public void testForPlaceMoveLeftReport() {
+<b class="fc"><i>14</i>&nbsp;        String placement = &quot;PLACE 2,2,NORTH&quot;;</b>
+<b class="fc"><i>15</i>&nbsp;        robot1.inputCommand(placement);</b>
+<b class="fc"><i>16</i>&nbsp;        robot1.inputCommand(&quot;MOVE&quot;);</b>
+<b class="fc"><i>17</i>&nbsp;        robot1.inputCommand(&quot;LEFT&quot;);</b>
+<b class="fc"><i>18</i>&nbsp;        assertEquals(&quot;2,3,WEST&quot; + &quot;\n&quot;, robot1.inputCommand(&quot;REPORT&quot;));</b>
+<b class="fc"><i>19</i>&nbsp;    }</b>
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @Test
+<i>22</i>&nbsp;    public void testForPlaceMoveLeftReportLeftRightReport() {
+<b class="fc"><i>23</i>&nbsp;        String placement = &quot;PLACE 2,2,NORTH&quot;;</b>
+<b class="fc"><i>24</i>&nbsp;        robot1.inputCommand(placement);</b>
+<b class="fc"><i>25</i>&nbsp;        robot1.inputCommand(&quot;MOVE&quot;);</b>
+<b class="fc"><i>26</i>&nbsp;        robot1.inputCommand(&quot;LEFT&quot;);</b>
+<b class="fc"><i>27</i>&nbsp;        assertEquals(&quot;2,3,WEST&quot; + &quot;\n&quot;, robot1.inputCommand(&quot;REPORT&quot;));</b>
+<b class="fc"><i>28</i>&nbsp;        robot1.inputCommand(&quot;LEFT&quot;);</b>
+<b class="fc"><i>29</i>&nbsp;        robot1.inputCommand(&quot;RIGHT&quot;);</b>
+<b class="fc"><i>30</i>&nbsp;        assertEquals(&quot;2,3,WEST&quot; + &quot;\n&quot;, robot1.inputCommand(&quot;REPORT&quot;));</b>
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;    }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    @Test
+<i>35</i>&nbsp;    public void testForPlaceMoveLeftMoveMoveReport() {
+<b class="fc"><i>36</i>&nbsp;        String placement = &quot;PLACE 1,2,NORTH&quot;;</b>
+<b class="fc"><i>37</i>&nbsp;        robot1.inputCommand(placement);</b>
+<b class="fc"><i>38</i>&nbsp;        robot1.inputCommand(&quot;MOVE&quot;);</b>
+<b class="fc"><i>39</i>&nbsp;        robot1.inputCommand(&quot;LEFT&quot;);</b>
+<b class="fc"><i>40</i>&nbsp;        robot1.inputCommand(&quot;MOVE&quot;);</b>
+<b class="fc"><i>41</i>&nbsp;        robot1.inputCommand(&quot;MOVE&quot;);</b>
+<b class="fc"><i>42</i>&nbsp;        assertEquals(&quot;0,3,WEST&quot; + &quot;\n&quot;, robot1.inputCommand(&quot;REPORT&quot;));</b>
+<b class="fc"><i>43</i>&nbsp;    }</b>
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    @Test
+<i>46</i>&nbsp;    public void testPositionOfTwoRobotsWhenSecondRobotIsMoved(){
+<b class="fc"><i>47</i>&nbsp;        String command1 = &quot;PLACE 0,0,NORTH&quot;;</b>
+<b class="fc"><i>48</i>&nbsp;        robot1.inputCommand(command1);</b>
+<b class="fc"><i>49</i>&nbsp;        command1 = &quot;MOVE&quot;;</b>
+<b class="fc"><i>50</i>&nbsp;        robot1.inputCommand(command1);</b>
+<b class="fc"><i>51</i>&nbsp;        assertEquals(&quot;0,1,NORTH&quot;+&quot;\n&quot;,robot1.inputCommand(&quot;REPORT&quot;));</b>
+<b class="fc"><i>52</i>&nbsp;        String command2 = &quot;PLACE 2,2,NORTH&quot;;</b>
+<b class="fc"><i>53</i>&nbsp;        robot2.inputCommand(command2);</b>
+<b class="fc"><i>54</i>&nbsp;        assertEquals(&quot;2,2,NORTH&quot;+&quot;\n&quot;,robot2.inputCommand(&quot;REPORT&quot;));</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;    }</b>
+<i>57</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-27 12:18</div>
+</div>
+</body>
+</html>

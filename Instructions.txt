@@ -1,0 +1,126 @@
+# Readify Graduate Puzzle for Toy robot
+
+-------------------------------
+Instruction to run the Program:
+-------------------------------
+* Program is the console application and it is developed using Java program.
+
+* first unzip the Readify-SiddharthThakur.zip file.	
+
+* There are two ways to run the program.
+  (Make sure JDK is already installed. I developed it in 1.8 version)
+  	-- To install JDK (Opitonal)
+  			Goto Java SE download site @ http://www.oracle.com/technetwork/java/javase/downloads/index.html.
+			
+			Under "Java Platform, Standard Edition" ⇒ "Java SE 11.0.{x}", where {x} denotes a fast running security-update number ⇒ Click the "Oracle JDK" "Download" button.
+			
+			Under "Java SE Development Kit 11.0.{x}" ⇒ Check "Accept License Agreement".
+			
+			Choose the JDK for your operating platform, i.e., MacOS. Download the DMG installer (e.g, jdk-11.0.{x}_osx-x64_bin.dmg - about 166MB).
+
+	(Above installation can be avoided if running the program using IDE platform)
+
+* First Way (Preferred)
+
+	- Open the Terminal / Command window(cmd.exe).
+	
+	- Change the current directory in the command window/terminal to the Directory where the file has been unzipped using "cd" command.
+
+	-  Once there, use "cd" command to change the directory to the location of Jar file. (It is in the "out folder under the "artefacts"):
+	
+		 "cd ../Readify-SiddharthThakur/Readify/out/artifacts/Readify_jar"
+	  
+	 
+	- Once on the above mentioned path, run the executable jar file by using following command:
+
+		"java -jar Readify.jar"
+
+	- Write the sequence of commands in caps		
+
+* Second Way 
+
+	- Install/Open any IDE that can compile and run the Java Programs. I am using 
+	  intelliJ IDEA 2017.2
+	  	- To install intelliJ IDEA
+	  		- go to https://www.jetbrains.com/idea/download/#section=mac
+	  		- Download the Community Version (Free)
+	  		- Install it
+
+	- Open the IDE, Click on Open / Open the folder
+		- Select the folder path "../Readify-SiddharthThakur/Readify"
+		- Open Readify
+
+	- Expand src and click on "Simulation.java". This is the main program. 
+
+	- Click on the play button or right click and select the Run 
+	  Simulation.Main().
+
+	- Write sequence of Commands in the console in caps.
+
+-------------------------------
+Files and Evidences:
+-------------------------------
+* All the program files are under "src" directory and separated under the different folder:
+	- RobotSimulationController
+		-RobotActivity.java
+
+	- RobotSimulationModel
+		- Direction.java
+		- Position.java
+		- Robot.java
+		- TableTop.java
+
+	- View
+	  //Empty Folder for future use of implementing UI
+
+	- Simulation.java
+	  // Consist of Main Program. 
+	  In order to run the application. Run this program.
+
+	- test (This folder consist of unit test cases of the application)
+
+		- RobotSimulationController
+			-RobotActivityTest.java
+
+		- RobotSimulationModel
+			- DirectionTest.java
+			- PositionTest.java
+			- RobotTest.java
+
+	- SimulationTest.java
+
+* Evidences
+	- Go to Evidence folder  => ../Readify/Evidences
+		- Coverage Report
+			It consist of coverage report of all unit test cases of the application. It is generated from intelliJ and is viewed in web browser. In order to view the report, double click on 			the "index.html" file. It lists out the test coverage of the application as a whole.
+
+		- JavaDoc
+			It consist of list of classes,variables,methods and packages. It also provides the definitions of these things.
+
+		- Screenshots
+			It consist of screenshots of the IntelliJ console window. Screenshots are taken for the sample inputs provided in the Readify Questions. It also has screenshots of the invalid 			commands and invalid robot positions.
+
+
+	  
+
+
+-------------------------------
+Requirement Traceability:
+-------------------------------
+
+* Program reads only 5 types of commands(typed in caps):
+	- PLACE X,Y,DIRECTION
+	- MOVE
+	- LEFT 
+	- RIGHT
+	- REPORT
+
+* Robot is allowed to move freely within the size of the table. 	
+  According to the puzzle logic, robot shall not fall.
+
+* First command shall be PLACE command and after that any command for n  
+  number times can be called. Any command entered before robot is placed needs to be discarded.
+
+* There can be many instances of robots on the table. However commands  
+  shall be specific to the robot. i.e if one robot moves then all the   robots shall ignore the command.
+

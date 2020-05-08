@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RobotActivityTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">test.RobotSimulationController</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RobotActivityTest (test.RobotSimulationController)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RobotActivityTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (91/ 91)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package test.RobotSimulationController;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import RobotSimulationController.RobotActivity;
+<i>4</i>&nbsp;import RobotSimulationModel.Robot;
+<i>5</i>&nbsp;import org.junit.Test;
+<i>6</i>&nbsp;import static org.junit.Assert.assertEquals;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;
+<b class="fc"><i>9</i>&nbsp;public class RobotActivityTest {</b>
+<b class="fc"><i>10</i>&nbsp;    RobotActivity r1 = new RobotActivity();</b>
+<i>11</i>&nbsp;    @Test
+<i>12</i>&nbsp;    public void moveRobotWhenRobotIsNotPlaced(){
+<i>13</i>&nbsp;        //RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>14</i>&nbsp;        String command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>15</i>&nbsp;        String expected = &quot;Robot is not placed yet.&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>16</i>&nbsp;        Robot.place = false;</b>
+<b class="fc"><i>17</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    }</b>
+<i>20</i>&nbsp;    @Test
+<i>21</i>&nbsp;    public void rotateRobotLeftWhenRobotIsNotPlaced(){
+<i>22</i>&nbsp;        //RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>23</i>&nbsp;        String command = &quot;LEFT&quot;;</b>
+<b class="fc"><i>24</i>&nbsp;        String expected = &quot;Robot is not placed yet.&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>25</i>&nbsp;        Robot.place = false;</b>
+<b class="fc"><i>26</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>27</i>&nbsp;
+<b class="fc"><i>28</i>&nbsp;    }</b>
+<i>29</i>&nbsp;    @Test
+<i>30</i>&nbsp;    public void rotateRobotRightWhenRobotIsNotPlaced(){
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;        String command = &quot;RIGHT&quot;;</b>
+<b class="fc"><i>33</i>&nbsp;        String expected = &quot;Robot is not placed yet.&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>34</i>&nbsp;        Robot.place = false;</b>
+<b class="fc"><i>35</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>36</i>&nbsp;
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<i>38</i>&nbsp;    @Test
+<i>39</i>&nbsp;    public void reportRobotPositionWhenRobotIsNotPlaced(){
+<i>40</i>&nbsp;        //RobotActivity r2 = new RobotActivity();
+<b class="fc"><i>41</i>&nbsp;        String command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>42</i>&nbsp;        String expected = &quot;Robot is not placed yet.&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>43</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;    }</b>
+<i>46</i>&nbsp;    @Test
+<i>47</i>&nbsp;    public void reportRobotPositionAfterPlacement(){
+<i>48</i>&nbsp;        //RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>49</i>&nbsp;        String command = &quot;PLACE 0,1,NORTH&quot;;</b>
+<b class="fc"><i>50</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>51</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>52</i>&nbsp;        String expected = &quot;0,1,NORTH&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>53</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;    }</b>
+<i>56</i>&nbsp;    @Test
+<i>57</i>&nbsp;    public void reportRobotPositionAfterMovingItTowardsNorth(){
+<i>58</i>&nbsp;       // RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>59</i>&nbsp;        String command = &quot;PLACE 0,1,NORTH&quot;;</b>
+<b class="fc"><i>60</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>61</i>&nbsp;        command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>62</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>63</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>64</i>&nbsp;        String expected = &quot;0,2,NORTH&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>65</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>66</i>&nbsp;
+<b class="fc"><i>67</i>&nbsp;    }</b>
+<i>68</i>&nbsp;
+<i>69</i>&nbsp;    @Test
+<i>70</i>&nbsp;    public void reportRobotPositionAfterMovingItTowardsSorth(){
+<i>71</i>&nbsp;       // RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>72</i>&nbsp;        String command = &quot;PLACE 0,1,SOUTH&quot;;</b>
+<b class="fc"><i>73</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>74</i>&nbsp;        command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>75</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>76</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>77</i>&nbsp;        String expected = &quot;0,0,SOUTH&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>78</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;    }</b>
+<i>81</i>&nbsp;    @Test
+<i>82</i>&nbsp;    public void reportRobotPositionAfterMovingItTowardsEast(){
+<i>83</i>&nbsp;       // RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>84</i>&nbsp;        String command = &quot;PLACE 0,1,EAST&quot;;</b>
+<b class="fc"><i>85</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>86</i>&nbsp;        command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>87</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>88</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>89</i>&nbsp;        String expected = &quot;1,1,EAST&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>90</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<b class="fc"><i>91</i>&nbsp;    }</b>
+<i>92</i>&nbsp;    @Test
+<i>93</i>&nbsp;    public void reportRobotPositionAfterMovingItTowardsWest(){
+<i>94</i>&nbsp;       // RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>95</i>&nbsp;        String command = &quot;PLACE 1,1,WEST&quot;;</b>
+<b class="fc"><i>96</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>97</i>&nbsp;        command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>98</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>99</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>100</i>&nbsp;        String expected = &quot;0,1,WEST&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>101</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<b class="fc"><i>102</i>&nbsp;    }</b>
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    @Test
+<i>105</i>&nbsp;    public void reportRobotPositionAfterMovingOffTheTableFromWest(){
+<i>106</i>&nbsp;       // RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>107</i>&nbsp;        String command = &quot;PLACE 0,1,WEST&quot;;</b>
+<b class="fc"><i>108</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>109</i>&nbsp;        command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>110</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>111</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>112</i>&nbsp;        String expected = &quot;0,1,WEST&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>113</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<b class="fc"><i>114</i>&nbsp;    }</b>
+<i>115</i>&nbsp;
+<i>116</i>&nbsp;    @Test
+<i>117</i>&nbsp;    public void reportRobotPositionAfterMovingOffTheTableFromEast(){
+<i>118</i>&nbsp;        //RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>119</i>&nbsp;        String command = &quot;PLACE 4,2,EAST&quot;;</b>
+<b class="fc"><i>120</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>121</i>&nbsp;        command = &quot;MOVE&quot;;</b>
+<b class="fc"><i>122</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>123</i>&nbsp;        command = &quot;REPORT&quot;;</b>
+<b class="fc"><i>124</i>&nbsp;        String expected = &quot;4,2,EAST&quot;+&quot;\n&quot;;</b>
+<b class="fc"><i>125</i>&nbsp;        assertEquals(expected,r1.inputCommand(command));</b>
+<b class="fc"><i>126</i>&nbsp;    }</b>
+<i>127</i>&nbsp;
+<i>128</i>&nbsp;    @Test
+<i>129</i>&nbsp;    public void VerfiyCommandWithWrongNumberofInputs(){
+<b class="fc"><i>130</i>&nbsp;        String command = &quot;PLACE 55,NORTH&quot;;</b>
+<i>131</i>&nbsp;       // RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>132</i>&nbsp;        assertEquals(&quot;Check the Command&quot;+&quot;\n&quot;,r1.inputCommand(command));</b>
+<b class="fc"><i>133</i>&nbsp;        command = &quot;PLACE 55,55&quot;;</b>
+<b class="fc"><i>134</i>&nbsp;        assertEquals(&quot;Check the Command&quot;+&quot;\n&quot;,r1.inputCommand(command));</b>
+<b class="fc"><i>135</i>&nbsp;        command = &quot;55 55,55&quot;;</b>
+<b class="fc"><i>136</i>&nbsp;        assertEquals(&quot;Check the Command&quot;+&quot;\n&quot;,r1.inputCommand(command));</b>
+<b class="fc"><i>137</i>&nbsp;        command = &quot;PLACE 0,1,NORTH&quot;;</b>
+<b class="fc"><i>138</i>&nbsp;        r1.inputCommand(command);</b>
+<b class="fc"><i>139</i>&nbsp;        command = &quot;mvc&quot;;</b>
+<b class="fc"><i>140</i>&nbsp;        assertEquals(&quot;Check the Command&quot;+&quot;\n&quot;,r1.inputCommand(command));</b>
+<b class="fc"><i>141</i>&nbsp;        command = &quot;Left&quot;;</b>
+<b class="fc"><i>142</i>&nbsp;        assertEquals(&quot;Check the Command&quot;+&quot;\n&quot;,r1.inputCommand(command));</b>
+<b class="fc"><i>143</i>&nbsp;    }</b>
+<i>144</i>&nbsp;
+<i>145</i>&nbsp;    @Test
+<i>146</i>&nbsp;    public void testBlankCommand(){
+<b class="fc"><i>147</i>&nbsp;        String command = &quot;&quot;;</b>
+<i>148</i>&nbsp;        //RobotActivity r1 = new RobotActivity();
+<b class="fc"><i>149</i>&nbsp;        assertEquals(&quot;&quot;,r1.inputCommand(command));</b>
+<i>150</i>&nbsp;
+<i>151</i>&nbsp;
+<b class="fc"><i>152</i>&nbsp;    }</b>
+<i>153</i>&nbsp;
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;
+<i>156</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-06-27 12:18</div>
+</div>
+</body>
+</html>

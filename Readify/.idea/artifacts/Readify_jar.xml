@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="Readify:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Readify_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Readify.jar">
+        <element id="module-output" name="Readify" />
+      </element>
+      <element id="library" level="module" name="JUnit4" module-name="Readify" />
+    </root>
+  </artifact>
+</component>
